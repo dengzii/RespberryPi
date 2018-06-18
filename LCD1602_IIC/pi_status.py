@@ -34,23 +34,23 @@ class PiStatus(CDaemon):
 		time.sleep(3)
 		rund = 0
 		LCD.clear_lcd()
-		d = 0
-		h = 0
-		m = 0
-		s = 0
+		#d = 0
+		#h = 0
+		#m = 0
+		#s = 0
 		while True:
-			s += 1
-			if s%60 == 0:
-				s = 0
-				m += 1
-				if m%60 == 0:
-					m=0
-					h += 1
-					if h%24 == 0:
-						h=0
-						d += 1
+			#s += 1
+			#if s%60 == 0:
+			#	s = 0
+			#	m += 1
+			#	if m%60 == 0:
+			#		m=0
+			#		h += 1
+			#		if h%24 == 0:
+			#			h=0
+			#			d += 1
 			LCD.print_lcd(0, 0, wlan0)
-			LCD.print_lcd(0, 1, "%s %s%s:%s%s:%s%s"%(d, h/10, h%10, m/10, m%10, s/10, s%10))
+			LCD.print_lcd(0, 1, host.get_up_time())# "%s %s%s:%s%s:%s%s"%(d, h/10, h%10, m/10, m%10, s/10, s%10))
 			time.sleep(1)
 		fd.close()  
 
